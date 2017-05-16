@@ -92,6 +92,6 @@ this.$nextTick(function() {
 
 MathJax.Hub.Config({
   tex2jax: {
-    inlineMath: [ ['$$$','$$$'], ['\(','\)'] ]
+    inlineMath: [ ['$','$'], ['\(','\)'] ]
   }
 });
