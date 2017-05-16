@@ -26,7 +26,7 @@ Vue.directive('highlightjs', {
 new Vue({
   el: '#editor',
   data: {
-    input: `Use the box in the far left to try our your markdown.
+    input: `Use the box in the far left to try out your markdown.
 
 # Markdown Reference Guide
 ## Emphasis
