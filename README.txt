@@ -1,0 +1,1 @@
+Markdown demo using Marked JS  produces and display HTML alongside the HTML code.  Live updating with Vue JS. Syntax highlighting with Highlight JS
