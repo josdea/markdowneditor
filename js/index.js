@@ -1,19 +1,15 @@
 Vue.directive('highlightjs', {
   deep: true,
-  bind: function(el, binding) {
-    // on first bind, highlight all targets
+  bind: function (el, binding) {
     let targets = el.querySelectorAll('code')
     targets.forEach((target) => {
-      // if a value is directly assigned to the directive, use this
-      // instead of the element content.
       if (binding.value) {
         target.textContent = binding.value
       }
       hljs.highlightBlock(target)
     })
   },
-  componentUpdated: function(el, binding) {
-    // after an update, re-fill the content and then highlight
+  componentUpdated: function (el, binding) {
     let targets = el.querySelectorAll('code')
     targets.forEach((target) => {
       if (binding.value) {
@@ -49,7 +45,7 @@ Ordered List
 
 ## Links
 
-[Google Search](google.com)
+[Printable Markdown Guide](./reference.html)
 
 ## Images
 
@@ -68,30 +64,35 @@ Sally | Straum
 ## Blockquote
 > this is a quote
 > quote continued
+
+## Example Math Content
+
+This is inline math \\\\(y=4x^2 - 2x=13\\\\) calling from the [MathJax](www.mathjax.org/) libary.
+
+This is math in block format on its own line. \\\\[y=4x^2 - 2x=13\\\\] 
+
 `
   },
   computed: {
     compiledMarkdown: function () {
-      
       return marked(this.input, { sanitize: false, gfm: true })
     },
-        rawHTML: function () {
-         
+    rawHTML: function () {
       return marked(this.input, { sanitize: false, gfm: true })
     }
   },
   methods: {
     update: _.debounce(function (e) {
       this.input = e.target.value
-this.$nextTick(function() {
-						 MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
-					 });
+      this.$nextTick(function () {
+        MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+      });
     }, 300)
   }
 })
 
-MathJax.Hub.Config({
-  tex2jax: {
-    inlineMath: [ ['$','$'], ['\(','\)'] ]
-  }
-});
+// MathJax.Hub.Config({
+//   tex2jax: {
+//     inlineMath: [ ['$','$'], ['\\(','\\)'] ]
+//   }
+// });

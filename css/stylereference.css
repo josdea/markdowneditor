@@ -1,10 +1,8 @@
 body{
-/*   font-size: 56px; */
 }
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6{
   line-height: .9;
   margin: 8px;
-/*   font-size: 1em; */
 }
 
 h1{font-size: 48px;}
@@ -14,7 +12,3 @@ p{
   font-size: 22px;
   line-height: 20px;
 }
-
-/* .row{
-  margin-top: 10px;
-} */
