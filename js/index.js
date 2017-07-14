@@ -45,7 +45,7 @@ Ordered List
 
 ## Links
 
-[Printable Markdown Guide](./reference.html)
+An example link: [Printable Markdown Guide](./reference.html)
 
 ## Images
 
