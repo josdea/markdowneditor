@@ -22,7 +22,7 @@ Vue.directive('highlightjs', {
 new Vue({
   el: '#editor',
   data: {
-    input: `Use the box in the far left to try out your markdown.
+    input: `Use the box in the far left to try out your markdown. Data is saved in your local browser storage.
 
 # Markdown Reference Guide
 ## Emphasis
@@ -83,11 +83,47 @@ This is math in block format on its own line. \\\\[y=4x^2 - 2x=13\\\\]
   },
   methods: {
     update: _.debounce(function (e) {
+
       this.input = e.target.value
       this.$nextTick(function () {
         MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
       });
-    }, 300)
+    }, 300),
+    updatelocalstorage: function () {
+      // alert("in update local function");
+      if (typeof Storage !== "undefined") {
+        localStorage.input = this.input;
+        console.log("this input" + this.input);
+        // alert("local storage updated");
+      }
+
+    },
+    retrievelocalstorage: function () {
+
+      if (typeof Storage !== "undefined") {
+        if (localStorage.input) {
+          this.input = localStorage.input;
+          // alert("local storage retrieved");
+        } else {
+          // alert("First time here");
+          localStorage.input = this.input;
+        }
+      } else {
+        alert("Sorry, your browser does not support web storage.  Changes will not be saved");
+      }
+    },
+    resetls: function () {
+      localStorage.clear();
+      location.reload();
+    }
+  },
+  created: function () {
+    // alert("Hello! Vue Created");
+    this.retrievelocalstorage();
+    // 
+  },
+  updated: function () {
+    this.updatelocalstorage();
   }
 })
 
