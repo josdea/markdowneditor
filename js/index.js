@@ -12,7 +12,9 @@ Vue.directive('highlightjs', {
   componentUpdated: function (el, binding) {
     let targets = el.querySelectorAll('code')
     targets.forEach((target) => {
-      if (binding.value) {
+      if (binding.value || binding.value == '') {
+// debugger;
+
         target.textContent = binding.value
         hljs.highlightBlock(target)
       }
@@ -78,12 +80,12 @@ This is math in block format on its own line. \\\\[y=4x^2 - 2x=13\\\\]
       return marked(this.input, { sanitize: false, gfm: true })
     },
     rawHTML: function () {
+      // debugger;
       return marked(this.input, { sanitize: false, gfm: true })
     }
   },
   methods: {
     update: _.debounce(function (e) {
-
       this.input = e.target.value
       this.$nextTick(function () {
         MathJax.Hub.Queue(["Typeset", MathJax.Hub]);

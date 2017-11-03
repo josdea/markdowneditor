@@ -1,10 +1,15 @@
-html, body, #editor {
+html, body, #editor, #compiledHTML, #rawHTML {
   margin: 0;
-  height: 100%;
+  height: 99%;
   font-family: 'Helvetica Neue', Arial, sans-serif;
 }
 
-textarea, #editor div {
+#compiledHTML{
+  height: 100%;
+  overflow: auto;
+}
+
+textarea, #editor div, #rawHTML {
   display: inline-block;
   width: 33%;
   height: 100%;
@@ -30,14 +35,21 @@ textarea {
 }
 
 pre, code {
-  /* height: 100%; */
+  height: 100%;
   font-size: 1.1em;
   margin: 0px 0px 0px 0px!important;
   color: black;
+
 }
 
 #rawHTML, code{
   padding: 0px!important;
+  
+}
+code{
+  /* overflow: auto; */
+  padding: 0px!important;
+  
 }
 
 #compiledHTML, #rawHTML{
@@ -48,7 +60,7 @@ ol ol{
 }
 
 img{
-  max-width: 50px;
+  max-width: 50%;
 }
 
 table, th, td {
