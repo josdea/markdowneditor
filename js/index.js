@@ -69,7 +69,7 @@ Sally | Straum
 
 ## Example Math Content
 
-This is inline math \\\\(y=4x^2 - 2x=13\\\\) calling from the [MathJax](www.mathjax.org/) libary.
+This is inline math \\\\(y=4x^2 - 2x=13\\\\) calling from the [MathJax](www.mathjax.org/) library.
 
 This is math in block format on its own line. \\\\[y=4x^2 - 2x=13\\\\] 
 
