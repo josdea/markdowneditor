@@ -17,7 +17,15 @@
       <pre v-highlightjs="rawHTML"><code class="html" id="codeBlock" ></code></pre>
     </div>
     <button v-on:click="resetls">Reset Template</button>
+    <a href="http://www.wiris.com/editor/demo/en/mathml-latex" target="_blank">Wiris Math Editor</a>
+    <a href="http://www.tablesgenerator.com/html_tables" target="_blank">Table Generator</a>
+    <form action="https://codepen.io/pen/define" method="POST" target="_blank">
+      <input type="hidden" name="data" value='{"title": "Markdown Math", "editors": "100", "html_pre_processor": "markdown", "css_external": "https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css", "js_external": "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML", "head": "<meta name=\"viewport\" content=\"width=device-width\">", "css": "body{padding:5px;}", "html": "<!--<div class=\"container\">-->\n\n# Put Markdown Here\n\n\\\\(x^2+14 = 2\\\\)\n\n\<!--</div>-->"}'>
+    
+      <input type="submit" value="Codepen Mathjax" title="New Codepen with Markdown / Mathjax / Boostrap">
+    </form>
   </div>
+  
   <script src='https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.6/marked.js'></script>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js'></script>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.10/vue.min.js'></script>
