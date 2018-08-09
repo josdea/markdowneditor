@@ -1,9 +1,11 @@
 html, body, #editor, #compiledHTML, #rawHTML {
   margin: 0;
-  height: 99%;
+  height: 98%;
   font-family: 'Helvetica Neue', Arial, sans-serif;
 }
-
+.links{
+  padding: 1em;
+}
 #compiledHTML{
   height: 100%;
   overflow: auto;
