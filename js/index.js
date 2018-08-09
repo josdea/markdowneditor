@@ -27,6 +27,8 @@ new Vue({
     input: `Use the box in the far left to try out your markdown. Data is saved in your local browser storage.
 
 # Markdown Reference Guide
+Download the HTML when you're finished.  The HTML file comes with support for math as well as Bootstrap 4 styling and functionality.
+
 ## Emphasis
 *Italics* or _Italics_
 **Bold** or __Bold__
@@ -51,12 +53,14 @@ An example link: [Printable Markdown Guide](./reference.html)
 
 ## Images
 
-![alternate text goes here](http://www.iconeasy.com/icon/ico/System/Artists%20Valley%20Sample/Business%20Man%20Blue.ico)
+![alternate text goes here](./images/sample.jpg)
+
+All images should be placed in an images folder.  The images folder should be in the same place as the HTML file that this markdown produces.
 
 ## Tables
 
 First Name | Last Name
---|--
+-|-
 Billy | Rogers
 Sally | Straum 
 
@@ -117,6 +121,30 @@ This is math in block format on its own line. \\\\[y=4x^2 - 2x=13\\\\]
     resetls: function () {
       localStorage.clear();
       location.reload();
+    },
+    downloadHTML: function () {
+ 
+      let pTitle = prompt("Please enter desired page title (displays in browser tab):", "The Something");
+      if (pTitle == null || pTitle == "") {
+        pTitle = "";
+      }
+ 
+      let tStart = '<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script><title>' + pTitle + '</title><style></style></head><body><main><div class="container">';
+      let tEnd = '</div></main><script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script><script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script></body></html>';
+      let text = tStart + this.rawHTML + tEnd;
+      // let d = new Date();
+
+      let filename = prompt("Please enter desired file name (ideally all lowercase and no spaces or special characters:", "index");
+      if (filename == null || filename == "") {
+        filename = "index";
+      } else {
+        console.log(filename);
+      }
+
+      filename = filename + ".html";
+      download(filename, text);
+      
+      // console.log(this.rawHTML);
     }
   },
   created: function () {
@@ -127,7 +155,20 @@ This is math in block format on its own line. \\\\[y=4x^2 - 2x=13\\\\]
   updated: function () {
     this.updatelocalstorage();
   }
-})
+});
+
+function download(filename, text) {
+  var element = document.createElement("a");
+  element.setAttribute(
+    "href",
+    "data:text/plain;charset=utf-8," + encodeURIComponent(text)
+  );
+  element.setAttribute("download", filename);
+  element.style.display = "none";
+  document.body.appendChild(element);
+  element.click();
+  document.body.removeChild(element);
+}
 
 // MathJax.Hub.Config({
 //   tex2jax: {
