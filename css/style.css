@@ -3,9 +3,7 @@ html, body, #editor, #compiledHTML, #rawHTML {
   height: 98%;
   font-family: 'Helvetica Neue', Arial, sans-serif;
 }
-.links{
-  padding: 1em;
-}
+
 #compiledHTML{
   height: 100%;
   overflow: auto;
