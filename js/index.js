@@ -124,7 +124,7 @@ This is math in block format on its own line. \\\\[y=4x^2 - 2x=13\\\\]
     },
     downloadHTML: function () {
  
-      let pTitle = prompt("Please enter desired page title (displays in browser tab):", "The Something");
+      let pTitle = prompt("Please enter desired page title (displays in browser tab):", "Untitled");
       if (pTitle == null || pTitle == "") {
         pTitle = "";
       }
